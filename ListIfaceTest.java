@@ -1,4 +1,5 @@
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -18,7 +19,7 @@ public class ListIfaceTest {
         listFill();
         assertEquals("Velikost listu po přidani 6 polozek neni 6, ale: "+list.getSize(),list.getSize(),6);
         for (int i = INITIAL_INDEX_POSITION; i < list.getSize()+INITIAL_INDEX_POSITION; i++) {
-            assertEquals("Polozky nejsou ve spravnem poradi, polozka c:"+i+" hodnoty: ocekavana: "+(i)+" vracena; "+(int) list.get(i),(int) list.get(i), i);
+            assertEquals("Polozky nejsou ve spravnem poradi, polozka c:"+i+" hodnoty: ocekavana: "+(i+1-INITIAL_INDEX_POSITION)+" vracena; "+(int) list.get(i),(int) list.get(i), i+1-INITIAL_INDEX_POSITION);
         }
     }
 
@@ -26,16 +27,16 @@ public class ListIfaceTest {
     public void testRemove() throws Exception {
         listFill();
         list.remove(INITIAL_INDEX_POSITION);
-        assertEquals("Po smazani prvniho prvku nema list velikost 5, ale: "+list.getSize(),list.getSize(), 5);
-        list.remove(4+INITIAL_INDEX_POSITION);
-        assertEquals("Po smazani posledniho prvku nema list velikost 4, ale: "+list.getSize(),list.getSize(),4);
-        list.remove(2);
+        assertEquals("Po smazani prvniho prvku nema list velikost 5, ale: " + list.getSize(), list.getSize(), 5);
+        list.remove(4 + INITIAL_INDEX_POSITION);
+        assertEquals("Po smazani posledniho prvku nema list velikost 4, ale: " + list.getSize(), list.getSize(), 4);
+        list.remove(1+INITIAL_INDEX_POSITION);
         assertEquals("Po smazani druheho prvku nema list velikost 3, ale: "+list.getSize(),list.getSize(),3);
         for (int i = INITIAL_INDEX_POSITION; i < list.getSize()+INITIAL_INDEX_POSITION; i++) {
             if(i>INITIAL_INDEX_POSITION){
-                assertEquals("Smazana spatná polozka. Hodnoty: ocekavana: "+(i+1+INITIAL_INDEX_POSITION)+" vracena; "+(int) list.get(i),(int) list.get(i), i+1+INITIAL_INDEX_POSITION);
+                assertEquals("Smazana spatná polozka. Hodnoty: ocekavana: "+(i+3-INITIAL_INDEX_POSITION)+" vracena; "+(int) list.get(i),(int) list.get(i), i+3-INITIAL_INDEX_POSITION);
             }else{
-            assertEquals("Smazana spatná polozka. Hodnoty: ocekavana: "+(i+INITIAL_INDEX_POSITION)+" vracena; "+(int) list.get(i),(int) list.get(i), i+INITIAL_INDEX_POSITION);
+            assertEquals("Smazana spatná polozka. Hodnoty: ocekavana: "+(i+2-INITIAL_INDEX_POSITION)+" vracena; "+(int) list.get(i),(int) list.get(i), i+2-INITIAL_INDEX_POSITION);
             }
         }
     }
@@ -53,11 +54,8 @@ public class ListIfaceTest {
     
     private void listFill() {
         list=new Jednosmerny<Integer>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(5);
-        list.add(6);
+        for (int i = 1; i < 7; i++) {
+            list.add(i);
+        }
     }
 }
