@@ -1,8 +1,5 @@
 /**
- * Rozhrani pouzito s mirnou upravou ze zdroje publikovaneho cvicim.
- * Upraven byl nazev parametru v metode add, jelikoz nazev value popisuje ucel parametru vystizneji,
- * a byl pridan datovy typ k nazvu tridy, cehoz muzeme vyuzit pro vytvareni seznamu i s jinymi hodnotami
- * nez typu int.
+ * Created by mejty on 25.2.14.
  */
 /**
  * Rozhrani, jez definuje operace, ktere musi splnit kazda implementace seznamu
@@ -13,7 +10,7 @@ public interface ListIface<T> {
 
     /**
      * Vlozi na konec seznamu prvek
-     * @param value prvek k vlozeni
+     * @param i prvek k vlozeni
      */
     public void add(T value);
 
