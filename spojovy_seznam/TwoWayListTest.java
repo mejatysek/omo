@@ -112,7 +112,7 @@ public class TwoWayListTest {
         this.list.add(2);
         this.list.add(0);
         this.list.removeAll(4);
-        assertEquals("Odebirani zaznamu s hodnotou 3 nemuzu ovlivnit seznam se zaznamy nabivajicimi pouze hodnot 0-3", 8, list.getSize());
+        assertEquals("Odebirani zaznamu s hodnotou 4 nemuzu ovlivnit seznam se zaznamy nabivajicimi pouze hodnot 0-3", 8, list.getSize());
         this.list.removeAll(3);
         assertEquals("Odebirani zaznamu neprobehlo spravne", 7, list.getSize());
         this.list.removeAll(2);
