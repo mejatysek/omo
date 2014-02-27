@@ -1,4 +1,4 @@
-package cv02;
+
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -62,11 +62,6 @@ public class TwoWayListTest {
         assertEquals("Metoda addOrdered nevytvari serazeny seznam: " + printList(), true, list.isOrdered());
         this.list.addOrdered(4);
         assertEquals("Metoda addOrdered nevytvari serazeny seznam: " + printList(), true, list.isOrdered());
-        buildList();
-        this.list.add(4);
-        this.list.add(0);
-        this.list.addOrdered(2);
-        assertEquals("Vkladani do serezaneho seznamu nelze provadet na seznamu neserazenem", false, list.isOrdered());
     }
 
     @Test
@@ -100,7 +95,6 @@ public class TwoWayListTest {
         buildList();
         this.list.add(1);
         this.list.addUnique(1);
-        this.list.add(1);
         this.list.addUnique(1);
         assertEquals("Seznam ma obsahovat pouze jeden zaznam", 1, list.getSize());
         assertEquals("Seznam ma obsahovat pouze unikatni zaznamy", true, list.isUnique());

@@ -1,4 +1,4 @@
-package cv02;
+
 
 public interface TwoWayIface {
     public void add(int value);
